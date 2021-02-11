@@ -1,5 +1,5 @@
 <div class="d-grid">
   <div *ngFor="let gif of results">
-    <img [src]="gif.images.downsized_medium.url" alt="" />
+    <img [src]="gif.images?.downsized_medium?.url" [alt]="gif.title" />
   </div>
 </div>
