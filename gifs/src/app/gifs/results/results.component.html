@@ -1,1 +1,5 @@
-<p>results works!</p>
+<div class="d-grid">
+  <div *ngFor="let gif of results">
+    <img [src]="gif.images.downsized_medium.url" alt="" />
+  </div>
+</div>
