@@ -1,0 +1,12 @@
+.gifs-grid {
+  column-count: 4;
+  column-gap: 0.5em;
+
+  div {
+    margin-bottom: 0.5em;
+
+    img {
+      width: 100%;
+    }
+  }
+}
