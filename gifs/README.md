@@ -4,7 +4,7 @@ This is an application that uses the most popular API of the moment (Giphy) to s
 
 ## Preview
 
-![](/.readme-static/app.png)
+![](/.readme-static/app.jpg)
 
 ## Project setup
 
