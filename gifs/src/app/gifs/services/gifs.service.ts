@@ -2,8 +2,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { IGif, IGIFResponse } from '../interfaces/gifResponse.interface';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
 
 @Injectable()
 export class GifsService {
@@ -22,30 +20,18 @@ export class GifsService {
   searchGifs(query: string): void {
     query = query.trim().toLowerCase();
     const url = environment.api + environment.endpoint_search;
-    const params = new HttpParams()
-      .set('api_key', environment.apiKey)
-      .set('q', query)
-      .set('limit', '20');
-    this.http
-      .get<IGIFResponse>(url, { params })
-      .pipe(
-        catchError((error) => {
-          console.log('Error is::', error);
-          return throwError('Custom error');
-        })
-      )
-      .subscribe(
-        (resp) => {
-          this.results = resp.data;
-          localStorage.setItem('latestResults', JSON.stringify(resp.data));
-        },
-        (error) => {
-          console.log('Error service :: ', error);
-        }
-      );
+    const params = new HttpParams().set('q', query);
+
     if (!this._history.includes(query)) {
       this._history = [query, ...this._history.splice(0, 9)];
       localStorage.setItem('history', JSON.stringify(this._history));
     }
+
+    this.http
+      .get<IGIFResponse>(url, { params })
+      .subscribe((resp) => {
+        this.results = resp.data;
+        localStorage.setItem('latestResults', JSON.stringify(resp.data));
+      });
   }
 }
