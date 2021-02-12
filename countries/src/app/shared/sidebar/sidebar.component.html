@@ -1,5 +1,14 @@
 <mat-chip-list aria-label="Fish selection">
-  <mat-chip selected>Country</mat-chip>
-  <mat-chip>Region</mat-chip>
-  <mat-chip>Capital</mat-chip>
+  <mat-chip
+    routerLink="/"
+    routerLinkActive="mat-chip-selected"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Country</mat-chip
+  >
+  <mat-chip routerLink="region" routerLinkActive="mat-chip-selected"
+    >Region</mat-chip
+  >
+  <mat-chip routerLink="capital" routerLinkActive="mat-chip-selected"
+    >Capital</mat-chip
+  >
 </mat-chip-list>

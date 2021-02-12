@@ -2,3 +2,7 @@
   width: 100px;
   justify-content: center;
 }
+
+.mat-chip.mat-standard-chip::after {
+  background: none;
+}
