@@ -1,0 +1,21 @@
+.country-form {
+  width: 60%;
+  max-width: 550px;
+  margin: auto;
+
+  .mat-form-field {
+    width: 100%;
+
+    input {
+      font-size: 1.5em;
+    }
+  }
+}
+
+.country-table {
+  width: 100%;
+
+  th.mat-header-cell {
+    text-align: center;
+  }
+}
