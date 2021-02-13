@@ -22,4 +22,7 @@ export class RestCountriesService {
   searchRegion(region: string): Observable<ICountry[]> {
     return this.http.get<ICountry[]>(environment.apiURL + '/region/' + region);
   }
+  getCountryCode(code: string): Observable<ICountry> {
+    return this.http.get<ICountry>(environment.apiURL + '/alpha/' + code);
+  }
 }

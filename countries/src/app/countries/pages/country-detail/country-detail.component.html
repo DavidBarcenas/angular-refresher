@@ -1,1 +1,10 @@
-<p>country-detail works!</p>
+<div class="loading" *ngIf="!country; else detail">Loading...</div>
+
+<ng-template #detail>
+  <div class="country-detail">
+    <h1>
+      Country: <small>{{ country.name }}</small>
+    </h1>
+    <img [src]="country.flag" alt="" style="width: 100px" />
+  </div>
+</ng-template>
