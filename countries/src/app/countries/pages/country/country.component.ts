@@ -1,16 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { RestCountriesService } from '../../services/rest-countries.service';
 
 const ELEMENT_DATA = [
   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
   { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
 
 @Component({
@@ -19,10 +12,34 @@ const ELEMENT_DATA = [
   styleUrls: ['./country.component.scss'],
 })
 export class CountryComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
 
-  constructor() {}
+  displayedColumns: string[] = [
+    'position',
+    'name',
+    'weight',
+    'symbol',
+    'action',
+  ];
+  dataSource = ELEMENT_DATA;
+  showNotFound: boolean = false;
+
+  constructor(private restCountriesService: RestCountriesService) {}
 
   ngOnInit(): void {}
+
+  searchCountry() {
+    this.showNotFound = false;
+    const q = this.searchInput.nativeElement.value;
+    this.restCountriesService.searchCountry(q).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        if (error.status === 404) {
+          this.showNotFound = true;
+        }
+      }
+    );
+  }
 }
