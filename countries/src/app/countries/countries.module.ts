@@ -5,6 +5,7 @@ import { CountryComponent } from './pages/country/country.component';
 import { RegionComponent } from './pages/region/region.component';
 import { CountryDetailComponent } from './pages/country-detail/country-detail.component';
 import { MaterialModule } from '../shared/material/material.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { MaterialModule } from '../shared/material/material.module';
     RegionComponent,
     CountryDetailComponent,
   ],
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, RouterModule, MaterialModule],
   exports: [
     CapitalComponent,
     CountryComponent,

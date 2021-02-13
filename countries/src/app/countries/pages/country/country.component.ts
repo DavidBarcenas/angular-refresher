@@ -1,10 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ICountry } from '../../interfaces/country.interface';
 import { RestCountriesService } from '../../services/rest-countries.service';
-
-const ELEMENT_DATA = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-];
 
 @Component({
   selector: 'app-country',
@@ -14,30 +10,26 @@ const ELEMENT_DATA = [
 export class CountryComponent implements OnInit {
   @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
 
-  displayedColumns: string[] = [
-    'position',
-    'name',
-    'weight',
-    'symbol',
-    'action',
-  ];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['code', 'flag', 'name', 'population', 'action'];
+  dataSource: ICountry[] = [];
   showNotFound: boolean = false;
 
   constructor(private restCountriesService: RestCountriesService) {}
 
   ngOnInit(): void {}
 
-  searchCountry() {
+  searchCountry(): void {
     this.showNotFound = false;
     const q = this.searchInput.nativeElement.value;
     this.restCountriesService.searchCountry(q).subscribe(
-      (response) => {
-        console.log(response);
+      (countries: ICountry[]) => {
+        console.log(countries);
+        this.dataSource = countries;
       },
       (error) => {
         if (error.status === 404) {
           this.showNotFound = true;
+          this.dataSource = [];
         }
       }
     );

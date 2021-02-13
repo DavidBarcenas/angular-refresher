@@ -13,9 +13,15 @@
 }
 
 .country-table {
-  width: 100%;
+  width: 80%;
+  margin: auto;
+}
 
-  th.mat-header-cell {
-    text-align: center;
-  }
+.flag {
+  $size: 40px;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
 }
