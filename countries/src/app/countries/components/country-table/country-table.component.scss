@@ -1,0 +1,13 @@
+.country-table {
+  width: 80%;
+  margin: auto;
+}
+
+.flag {
+  $size: 40px;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+}

@@ -6,6 +6,8 @@ import { RegionComponent } from './pages/region/region.component';
 import { CountryDetailComponent } from './pages/country-detail/country-detail.component';
 import { MaterialModule } from '../shared/material/material.module';
 import { RouterModule } from '@angular/router';
+import { CountryTableComponent } from './components/country-table/country-table.component';
+import { SearchInputComponent } from './components/search-input/search-input.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { RouterModule } from '@angular/router';
     CountryComponent,
     RegionComponent,
     CountryDetailComponent,
+    CountryTableComponent,
+    SearchInputComponent,
   ],
   imports: [CommonModule, RouterModule, MaterialModule],
   exports: [

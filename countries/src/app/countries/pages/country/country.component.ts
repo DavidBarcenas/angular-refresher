@@ -8,28 +8,23 @@ import { RestCountriesService } from '../../services/rest-countries.service';
   styleUrls: ['./country.component.scss'],
 })
 export class CountryComponent implements OnInit {
-  @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
-
-  displayedColumns: string[] = ['code', 'flag', 'name', 'population', 'action'];
-  dataSource: ICountry[] = [];
   showNotFound: boolean = false;
+  countries: ICountry[] = [];
 
   constructor(private restCountriesService: RestCountriesService) {}
 
   ngOnInit(): void {}
 
-  searchCountry(): void {
+  searchCountry(q: string): void {
     this.showNotFound = false;
-    const q = this.searchInput.nativeElement.value;
     this.restCountriesService.searchCountry(q).subscribe(
       (countries: ICountry[]) => {
-        console.log(countries);
-        this.dataSource = countries;
+        this.countries = countries;
       },
       (error) => {
         if (error.status === 404) {
           this.showNotFound = true;
-          this.dataSource = [];
+          this.countries = [];
         }
       }
     );

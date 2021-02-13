@@ -1,0 +1,48 @@
+<ng-container *ngIf="countries.length">
+  <table
+    mat-table
+    [dataSource]="countries"
+    class="mat-elevation-z1 country-table"
+  >
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef style="width: 15%">#</th>
+      <td mat-cell *matCellDef="let country">{{ country.numericCode }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="flag">
+      <th mat-header-cell *matHeaderCellDef style="width: 15%">Bandera</th>
+      <td mat-cell *matCellDef="let country">
+        <img [src]="country.flag" [alt]="country.name" class="flag" />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef style="width: 35%">Nombre</th>
+      <td mat-cell *matCellDef="let country">{{ country.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="population">
+      <th mat-header-cell *matHeaderCellDef style="width: 25%">Población</th>
+      <td mat-cell *matCellDef="let country">
+        {{ country.population | number }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let country">
+        <button
+          mat-button
+          color="primary"
+          [routerLink]="['/country', country.alpha2Code]"
+          routerLinkActive="router-link-active"
+        >
+          Details
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</ng-container>

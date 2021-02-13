@@ -1,0 +1,11 @@
+<div class="country-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Search Country</mat-label>
+    <input
+      matInput
+      #searchInput
+      autocomplete="off"
+      (keyup.enter)="emitQuery()"
+    />
+  </mat-form-field>
+</div>
