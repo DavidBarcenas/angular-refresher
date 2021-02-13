@@ -29,4 +29,8 @@ export class CountryComponent implements OnInit {
       }
     );
   }
+
+  suggestions(q: string) {
+    this.showNotFound = false;
+  }
 }
