@@ -7,6 +7,12 @@
       autocomplete="off"
       (keyup.enter)="emitQuery()"
       (input)="onPress()"
+      [matAutocomplete]="auto"
     />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of sugges" [value]="option.name">
+        {{ option.name }}
+      </mat-option>
+    </mat-autocomplete>
   </mat-form-field>
 </div>

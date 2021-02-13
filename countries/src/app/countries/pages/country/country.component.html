@@ -1,6 +1,7 @@
 <app-search-input
   (query)="searchCountry($event)"
   (queryDebounce)="suggestions($event)"
+  [sugges]="sugess"
 ></app-search-input>
 
 <div class="alert" *ngIf="showNotFound">

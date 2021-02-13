@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  Input,
   OnInit,
   Output,
   ViewChild,
@@ -18,6 +19,7 @@ export class SearchInputComponent implements OnInit {
   @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
   @Output() query: EventEmitter<string> = new EventEmitter();
   @Output() queryDebounce: EventEmitter<string> = new EventEmitter();
+  @Input() sugges = [];
 
   debouncer: Subject<string> = new Subject();
 

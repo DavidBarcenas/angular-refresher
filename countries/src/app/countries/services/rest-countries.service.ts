@@ -11,7 +11,12 @@ export class RestCountriesService {
   constructor(private http: HttpClient) {}
 
   searchCountry(country: string): Observable<ICountry[]> {
-    return this.http.get<ICountry[]>(environment.apiURL + '/name/' + country);
+    return this.http.get<ICountry[]>(
+      environment.apiURL +
+        '/name/' +
+        country +
+        '?fields=name;capital;alpha2Code;flag;population;numericCode'
+    );
   }
 
   searchCapital(capital: string): Observable<ICountry[]> {
