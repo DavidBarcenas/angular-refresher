@@ -18,7 +18,9 @@
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef style="width: 35%">Nombre</th>
-      <td mat-cell *matCellDef="let country">{{ country.name }}</td>
+      <td mat-cell *matCellDef="let country">
+        {{ country.capital }}, {{ country.name }}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="population">

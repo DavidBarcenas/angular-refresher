@@ -8,6 +8,7 @@ import { MaterialModule } from '../shared/material/material.module';
 import { RouterModule } from '@angular/router';
 import { CountryTableComponent } from './components/country-table/country-table.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
+import { SearchViewComponent } from './components/search-view/search-view.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SearchInputComponent } from './components/search-input/search-input.com
     CountryDetailComponent,
     CountryTableComponent,
     SearchInputComponent,
+    SearchViewComponent,
   ],
   imports: [CommonModule, RouterModule, MaterialModule],
   exports: [

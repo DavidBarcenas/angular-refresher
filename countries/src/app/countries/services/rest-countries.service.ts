@@ -10,7 +10,16 @@ import { ICountry } from '../interfaces/country.interface';
 export class RestCountriesService {
   constructor(private http: HttpClient) {}
 
-  searchCountry(q: string): Observable<ICountry[]> {
-    return this.http.get<ICountry[]>(environment.apiURL + '/name/' + q);
+  searchCountry(country: string): Observable<ICountry[]> {
+    return this.http.get<ICountry[]>(environment.apiURL + '/name/' + country);
+  }
+
+  searchCapital(capital: string): Observable<ICountry[]> {
+    return this.http.get<ICountry[]>(
+      environment.apiURL + '/capital/' + capital
+    );
+  }
+  searchRegion(region: string): Observable<ICountry[]> {
+    return this.http.get<ICountry[]>(environment.apiURL + '/region/' + region);
   }
 }
