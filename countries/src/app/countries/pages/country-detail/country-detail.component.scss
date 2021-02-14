@@ -1,0 +1,37 @@
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
+.country-detail {
+  display: flex;
+  background: #fff;
+  padding: 2em 1em;
+
+  &-flag {
+    width: 400px;
+    margin-right: 2em;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    font-weight: 500;
+    margin-bottom: 1em;
+  }
+
+  .country-detail-item {
+    margin-bottom: 1em;
+    p,
+    span {
+      margin: 0;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 1.2em;
+    }
+
+    span {
+      font-weight: 500;
+      margin-left: 0.5em;
+    }
+  }
+}

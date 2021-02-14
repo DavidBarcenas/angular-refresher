@@ -9,6 +9,8 @@ import {
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { ICountry } from '../../interfaces/country.interface';
+import { SearchType } from '../../services/rest-countries.service';
 
 @Component({
   selector: 'app-search-input',
@@ -19,7 +21,8 @@ export class SearchInputComponent implements OnInit {
   @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
   @Output() query: EventEmitter<string> = new EventEmitter();
   @Output() queryDebounce: EventEmitter<string> = new EventEmitter();
-  @Input() sugges = [];
+  @Input() suggestions: ICountry[] = [];
+  @Input() searchType: SearchType = SearchType.country;
 
   debouncer: Subject<string> = new Subject();
 
@@ -29,8 +32,8 @@ export class SearchInputComponent implements OnInit {
       .subscribe((q) => this.queryDebounce.emit(q));
   }
 
-  emitQuery() {
-    const value = this.searchInput.nativeElement.value;
+  emitQuery(q?: string) {
+    const value = this.searchInput.nativeElement.value || q;
     if (value.trim().length > 0) {
       this.query.emit(value);
     }
@@ -38,6 +41,10 @@ export class SearchInputComponent implements OnInit {
 
   onPress() {
     const value = this.searchInput.nativeElement.value;
-    this.debouncer.next(value);
+    if (value.trim() !== '') {
+      this.debouncer.next(value);
+    } else {
+      this.suggestions = [];
+    }
   }
 }

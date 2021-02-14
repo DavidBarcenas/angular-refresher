@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
 import { ICountry } from '../../interfaces/country.interface';
 import { RestCountriesService } from '../../services/rest-countries.service';
@@ -14,15 +14,20 @@ export class CountryDetailComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private restCountriesService: RestCountriesService
+    private restCountriesService: RestCountriesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params
-      .pipe(
-        switchMap(({ id }) => this.restCountriesService.getCountryCode(id)),
-        tap(console.log)
-      )
-      .subscribe((data) => (this.country = data));
+      .pipe(switchMap(({ id }) => this.restCountriesService.getCountry(id)))
+      .subscribe(
+        (data) => {
+          this.country = data;
+        },
+        (error) => {
+          this.router.navigate(['/']);
+        }
+      );
   }
 }

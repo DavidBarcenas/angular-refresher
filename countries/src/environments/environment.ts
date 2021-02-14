@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiURL: 'https://restcountries.eu/rest/v2',
-  endpoint_country: '/name',
+  resource_code: '/alpha',
 };
 
 /*

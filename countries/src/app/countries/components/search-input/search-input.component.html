@@ -1,6 +1,6 @@
 <div class="country-form">
   <mat-form-field class="example-full-width">
-    <mat-label>Search Country</mat-label>
+    <mat-label>Search {{ searchType }}</mat-label>
     <input
       matInput
       #searchInput
@@ -10,7 +10,11 @@
       [matAutocomplete]="auto"
     />
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option *ngFor="let option of sugges" [value]="option.name">
+      <mat-option
+        *ngFor="let option of suggestions"
+        [value]="option.name"
+        (click)="emitQuery(option.name)"
+      >
         {{ option.name }}
       </mat-option>
     </mat-autocomplete>

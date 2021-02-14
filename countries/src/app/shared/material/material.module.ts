@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [],
@@ -17,6 +18,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatTableModule,
     MatButtonModule,
     MatAutocompleteModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatChipsModule,
@@ -25,6 +27,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatTableModule,
     MatButtonModule,
     MatAutocompleteModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class MaterialModule {}

@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { CountryTableComponent } from './components/country-table/country-table.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { SearchViewComponent } from './components/search-view/search-view.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SearchViewComponent } from './components/search-view/search-view.compon
     CountryTableComponent,
     SearchInputComponent,
     SearchViewComponent,
+    NotFoundComponent,
   ],
   imports: [CommonModule, RouterModule, MaterialModule],
   exports: [

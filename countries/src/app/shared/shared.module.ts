@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { MaterialModule } from './material/material.module';
 import { RouterModule } from '@angular/router';
+import { SearchOptsComponent } from './search-opts/search-opts.component';
 
 @NgModule({
-  declarations: [SidebarComponent],
+  declarations: [SearchOptsComponent],
   imports: [CommonModule, RouterModule, MaterialModule],
-  exports: [SidebarComponent],
+  exports: [SearchOptsComponent],
 })
 export class SharedModule {}
