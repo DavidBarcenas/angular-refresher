@@ -1,0 +1,38 @@
+<div class="loading" *ngIf="!country; else detail">
+  <mat-spinner></mat-spinner>
+</div>
+
+<ng-template #detail>
+  <div class="country-detail">
+    <img
+      [src]="country.flag"
+      [alt]="country.name"
+      class="country-detail-flag"
+    />
+    <div class="details">
+      <h1>{{ country.name }}</h1>
+      <div>
+        <div class="country-detail-item">
+          <p>Capital:</p>
+          <span>{{ country.capital }}</span>
+        </div>
+        <div class="country-detail-item">
+          <p>Region:</p>
+          <span>{{ country.region }}</span>
+        </div>
+        <div class="country-detail-item">
+          <p>Sub Region:</p>
+          <span>{{ country.subregion }}</span>
+        </div>
+        <div class="country-detail-item">
+          <p>Population:</p>
+          <span>{{ country.population | number }}</span>
+        </div>
+        <div class="country-detail-item">
+          <p>Currencies:</p>
+          <span>{{ country.currencies[0].name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

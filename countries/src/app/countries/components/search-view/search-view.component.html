@@ -1,0 +1,29 @@
+<ng-container *ngIf="searchType !== 'region'">
+  <app-search-input
+    (query)="searchCountries($event)"
+    (queryDebounce)="searchCountries($event, true)"
+    [suggestions]="suggestions"
+    [searchType]="searchType"
+  ></app-search-input>
+</ng-container>
+
+<ng-container *ngIf="searchType === 'region'">
+  <div class="region">
+    <mat-chip-list aria-label="region selection">
+      <mat-chip
+        *ngFor="let region of regions"
+        (click)="setRegion(region)"
+        color="accent"
+        [class.mat-chip-selected]="region === regionSelected"
+        >{{ region | titlecase }}</mat-chip
+      >
+    </mat-chip-list>
+  </div>
+</ng-container>
+
+<app-not-found
+  [showNotFound]="showNotFound"
+  [search]="searchWord"
+></app-not-found>
+
+<app-country-table [countries]="countries"></app-country-table>
