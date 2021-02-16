@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+// locale
+import localEs from '@angular/common/locales/es-MX';
+import localFr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localEs);
+registerLocaleData(localFr);
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
