@@ -1,4 +1,74 @@
-<h1>{{ myDate | date: "long":"":"es-MX" }}</h1>
-<h1>{{ myNumber | number }}</h1>
-<h1>{{ myCurrency | currency }}</h1>
-<h1>{{ myPercentage | percent: "2.2-2" }}</h1>
+<div class="row">
+  <div class="col s12 m12">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Date Pipe</span>
+        <h2>{{ myDate | date: "long":"":"es-MX" }}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m4">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Number Pipe</span>
+        <h2>{{ myNumber | number }}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m4">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Currency Pipe</span>
+        <h2>{{ myCurrency | currency }}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m4">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Percent Pipe</span>
+        <h2>{{ myPercentage | percent: "2.2-2" }}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">i18nSelect Pipe</span>
+        <h2>
+          Saludos {{ name }}, es un placer
+          {{ gender | i18nSelect: genderMap }} a nuestro evento
+        </h2>
+      </div>
+      <div class="card-action">
+        <button
+          class="waves-effect waves-light btn-small"
+          (click)="changePerson()"
+        >
+          Cambiar persona
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">i18nPlural Pipe</span>
+        <h2>Actualmente {{ clients.length | i18nPlural: clientsMap }}</h2>
+      </div>
+      <div class="card-action">
+        <button
+          class="waves-effect waves-light btn-small"
+          (click)="deleteClient()"
+        >
+          Eliminar cliente
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
