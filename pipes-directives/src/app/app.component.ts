@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   myDate = new Date();
+  myNumber = 1023655478;
+  myCurrency = 1023;
+  myPercentage = 0.48;
 }
