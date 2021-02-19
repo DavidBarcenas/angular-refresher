@@ -1,1 +1,22 @@
-<router-outlet></router-outlet>
+<mat-drawer-container fullscreen autosize>
+  <mat-drawer #drawer opened mode="side">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>Menú</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <button mat-button>
+      <mat-icon>add</mat-icon>
+      Agregar
+    </button>
+  </mat-drawer>
+
+  <div>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>Custom Toolbar</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
