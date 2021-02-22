@@ -1,1 +1,8 @@
-<p *ngFor="let heroe of heroes$ | async">{{ heroe.superhero }}</p>
+<div class="hero-list">
+  <mat-card *ngFor="let heroe of heroes$ | async" class="hero-list-card">
+    <img
+      [src]="heroe.superhero | heroImage: heroe.publisher"
+      [alt]="heroe.superhero"
+    />
+  </mat-card>
+</div>

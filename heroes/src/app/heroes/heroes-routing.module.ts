@@ -11,12 +11,11 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-      { path: 'list', component: HeroListComponent },
       { path: 'add', component: AddHeroComponent },
       { path: 'edit/:id', component: AddHeroComponent },
       { path: 'search', component: HeroSearchComponent },
       { path: ':id', component: HeroDetailComponent },
-      { path: '**', redirectTo: 'list' },
+      { path: '**', redirectTo: 'add' },
     ],
   },
 ];

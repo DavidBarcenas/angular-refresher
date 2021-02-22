@@ -1,0 +1,18 @@
+.hero-list {
+  display: flex;
+  flex-wrap: wrap;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+
+  &-card {
+    box-sizing: border-box;
+    width: 50%;
+    margin: 0;
+    padding: 0.25em;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}

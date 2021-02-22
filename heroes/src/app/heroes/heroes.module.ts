@@ -8,6 +8,7 @@ import { HeroSearchComponent } from './pages/hero-search/hero-search.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeroListComponent } from './pages/hero-list/hero-list.component';
 import { MaterialModule } from '../material/material.module';
+import { HeroImagePipe } from './pipes/hero-image.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { MaterialModule } from '../material/material.module';
     HeroSearchComponent,
     HomeComponent,
     HeroListComponent,
+    HeroImagePipe,
   ],
   imports: [CommonModule, HeroesRoutingModule, MaterialModule],
 })
