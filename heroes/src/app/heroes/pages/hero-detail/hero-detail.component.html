@@ -1,1 +1,11 @@
-<p>hero-detail works!</p>
+<div class="hero-detail">
+  <div class="loader" *ngIf="!hero; else heroDetail">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <ng-template #heroDetail>
+    <div class="hero-detail-container">
+      <h1>{{ hero.superhero }}</h1>
+    </div>
+  </ng-template>
+</div>

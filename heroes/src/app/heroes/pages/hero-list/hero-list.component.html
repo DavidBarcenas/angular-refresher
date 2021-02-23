@@ -1,5 +1,9 @@
 <div class="hero-list">
-  <mat-card *ngFor="let heroe of heroes$ | async" class="hero-list-card">
+  <mat-card
+    *ngFor="let heroe of heroes$ | async"
+    class="hero-list-card"
+    [routerLink]="['/heroes', heroe.id]"
+  >
     <img
       [src]="heroe.superhero | heroImage: heroe.publisher"
       [alt]="heroe.superhero"
