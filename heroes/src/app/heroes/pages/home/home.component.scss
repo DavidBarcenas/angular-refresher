@@ -1,3 +1,13 @@
+.mat-toolbar,
+mat-drawer-container {
+  background: #222;
+  color: #fff;
+}
+
 mat-drawer {
   width: 300px;
+}
+
+.nav {
+  margin-left: auto;
 }

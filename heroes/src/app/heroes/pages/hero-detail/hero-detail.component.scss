@@ -9,3 +9,31 @@
   align-items: center;
   justify-content: center;
 }
+
+.hero-detail-container {
+  display: flex;
+}
+
+.desc {
+  margin-left: 2em;
+
+  h1 {
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  div {
+    margin-bottom: 2em;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    color: #ccc;
+  }
+
+  span {
+    font-size: 1.6em;
+  }
+}

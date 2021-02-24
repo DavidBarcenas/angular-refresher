@@ -1,7 +1,7 @@
 <mat-drawer-container fullscreen autosize>
   <mat-drawer #drawer opened mode="side">
-    <mat-toolbar color="primary">
-      <mat-toolbar-row>
+    <mat-toolbar>
+      <mat-toolbar-row class="flex-between">
         <h1>Heroes</h1>
         <button mat-button>
           <mat-icon>add</mat-icon>
@@ -14,15 +14,15 @@
   </mat-drawer>
 
   <div>
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <mat-toolbar-row>
-        <nav>
-          <button mat-button>Basic</button>
-          <button mat-button>Basic</button>
-          <button mat-button>Basic</button>
+        <nav class="nav">
+          <button mat-button>Logout</button>
         </nav>
       </mat-toolbar-row>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </mat-drawer-container>

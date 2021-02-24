@@ -5,7 +5,29 @@
 
   <ng-template #heroDetail>
     <div class="hero-detail-container">
-      <h1>{{ hero.superhero }}</h1>
+      <img
+        [src]="hero.superhero | heroImage: hero.publisher"
+        [alt]="hero.superhero"
+      />
+      <div class="desc">
+        <h1>{{ hero.superhero }}</h1>
+        <div>
+          <p>First appearance</p>
+          <span>{{ hero.first_appearance }}</span>
+        </div>
+        <div>
+          <p>Alter ego</p>
+          <span>{{ hero.alter_ego }}</span>
+        </div>
+        <div>
+          <p>Characters</p>
+          <span>{{ hero.characters }}</span>
+        </div>
+        <div>
+          <p>Publisher</p>
+          <span>{{ hero.publisher }}</span>
+        </div>
+      </div>
     </div>
   </ng-template>
 </div>
