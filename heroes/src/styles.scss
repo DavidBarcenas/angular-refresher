@@ -21,3 +21,17 @@ body {
   padding: 1em 2em;
   overflow: hidden;
 }
+
+.mat-form-field-wrapper {
+  margin-left: 1em;
+  width: 400px;
+}
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  padding-left: 0 !important;
+}
+
+.mat-toolbar .mat-form-field-underline,
+.mat-toolbar .mat-form-field-ripple,
+.mat-toolbar .mat-focused .mat-form-field-ripple {
+  background: #fff !important;
+}

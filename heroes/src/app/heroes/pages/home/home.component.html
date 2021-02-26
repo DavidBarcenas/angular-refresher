@@ -14,8 +14,20 @@
   </mat-drawer>
 
   <div>
-    <mat-toolbar>
+    <mat-toolbar class="search-hero">
       <mat-toolbar-row>
+        <div>
+          <input
+            matInput
+            placeholder="Search hero...."
+            [matAutocomplete]="auto"
+          />
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of []" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
         <nav class="nav">
           <button mat-button>Logout</button>
         </nav>

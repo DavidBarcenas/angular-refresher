@@ -11,3 +11,11 @@ mat-drawer {
 .nav {
   margin-left: auto;
 }
+
+.mat-input-element::placeholder {
+  color: #fff;
+}
+
+.search-hero {
+  overflow: hidden;
+}
