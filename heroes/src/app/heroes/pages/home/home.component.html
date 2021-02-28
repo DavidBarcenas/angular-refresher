@@ -32,6 +32,11 @@
             <mat-option *ngFor="let option of suggestions" [value]="option">
               {{ option.superhero }}
             </mat-option>
+            <mat-option
+              [value]=""
+              *ngIf="query.trim() !== '' && suggestions.length === 0"
+              >No results found</mat-option
+            >
           </mat-autocomplete>
         </div>
         <nav class="nav">

@@ -26,6 +26,10 @@ export class HomeComponent implements OnInit {
 
   optSelected(e: MatAutocompleteActivatedEvent) {
     const heroSelected: Hero = e.option.value;
+    if (!heroSelected) {
+      this.query = '';
+      return;
+    }
     this.query = heroSelected.superhero;
     this.router.navigate(['heroes', heroSelected.id]);
   }
