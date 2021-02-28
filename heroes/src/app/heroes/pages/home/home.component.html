@@ -21,10 +21,16 @@
             matInput
             placeholder="Search hero...."
             [matAutocomplete]="auto"
+            [(ngModel)]="query"
+            (input)="search()"
           />
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-            <mat-option *ngFor="let option of []" [value]="option">
-              {{ option }}
+          <mat-autocomplete
+            autoActiveFirstOption
+            #auto="matAutocomplete"
+            (optionSelected)="optSelected($event)"
+          >
+            <mat-option *ngFor="let option of suggestions" [value]="option">
+              {{ option.superhero }}
             </mat-option>
           </mat-autocomplete>
         </div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroesRoutingModule } from './heroes-routing.module';
+import { FormsModule } from '@angular/forms';
 
 import { AddHeroComponent } from './pages/add-hero/add-hero.component';
 import { HeroDetailComponent } from './pages/hero-detail/hero-detail.component';
@@ -19,6 +20,6 @@ import { HeroImagePipe } from './pipes/hero-image.pipe';
     HeroListComponent,
     HeroImagePipe,
   ],
-  imports: [CommonModule, HeroesRoutingModule, MaterialModule],
+  imports: [CommonModule, HeroesRoutingModule, MaterialModule, FormsModule],
 })
 export class HeroesModule {}
