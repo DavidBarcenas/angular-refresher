@@ -7,6 +7,8 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(#fff, 0.1) #444;
 }
 
 .flex-between {
@@ -34,4 +36,16 @@ body {
 .mat-toolbar .mat-form-field-ripple,
 .mat-toolbar .mat-focused .mat-form-field-ripple {
   background: #fff !important;
+}
+
+::-webkit-scrollbar {
+  width: 7.5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #444;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(#fff, 0.1);
 }
