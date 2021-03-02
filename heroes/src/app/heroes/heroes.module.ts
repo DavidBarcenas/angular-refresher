@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeroListComponent } from './pages/hero-list/hero-list.component';
 import { MaterialModule } from '../material/material.module';
 import { HeroImagePipe } from './pipes/hero-image.pipe';
+import { HeroesHomeComponent } from './pages/heroes-home/heroes-home.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HeroImagePipe } from './pipes/hero-image.pipe';
     HomeComponent,
     HeroListComponent,
     HeroImagePipe,
+    HeroesHomeComponent,
   ],
   imports: [CommonModule, HeroesRoutingModule, MaterialModule, FormsModule],
 })
