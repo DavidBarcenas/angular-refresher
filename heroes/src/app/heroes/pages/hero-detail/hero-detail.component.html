@@ -27,6 +27,11 @@
           <p>Publisher</p>
           <span>{{ hero.publisher }}</span>
         </div>
+        <div>
+          <button mat-raised-button [routerLink]="['/heroes/edit', hero.id]">
+            Edit
+          </button>
+        </div>
       </div>
     </div>
   </ng-template>

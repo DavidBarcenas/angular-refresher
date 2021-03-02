@@ -26,4 +26,9 @@ export class HeroesService {
   createtHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>('http://localhost:3000/heroes/', hero);
   }
+
+  updatetHero(hero: Hero): Observable<Hero> {
+    console.log('http://localhost:3000/heroes/' + hero.id);
+    return this.http.put<Hero>('http://localhost:3000/heroes/' + hero.id, hero);
+  }
 }
