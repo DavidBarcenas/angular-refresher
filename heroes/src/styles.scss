@@ -49,3 +49,12 @@ body {
 ::-webkit-scrollbar-thumb {
   background: rgba(#fff, 0.1);
 }
+
+.mat-form-field-appearance-legacy .mat-form-field-label,
+.mat-select-value {
+  color: #fff !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background: #fff;
+}

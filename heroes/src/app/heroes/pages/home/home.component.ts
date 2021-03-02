@@ -19,9 +19,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   search() {
-    this.heroService
-      .getSuggestions(this.query)
-      .subscribe((heroes) => (this.suggestions = heroes));
+    if (this.query.trim() !== '') {
+      this.heroService
+        .getSuggestions(this.query)
+        .subscribe((heroes) => (this.suggestions = heroes));
+    } else {
+      this.suggestions = [];
+    }
   }
 
   optSelected(e: MatAutocompleteActivatedEvent) {

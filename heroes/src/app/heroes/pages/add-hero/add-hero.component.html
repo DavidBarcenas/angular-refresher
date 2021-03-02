@@ -1,1 +1,46 @@
-<p>add-hero works!</p>
+<h1>New Hero</h1>
+
+<div class="flex-between">
+  <form class="form" autocomplete="off">
+    <mat-form-field>
+      <mat-label>Super hero</mat-label>
+      <input type="text" matInput required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Alter ego</mat-label>
+      <input type="text" matInput required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>First appearance</mat-label>
+      <input type="text" matInput required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Characters:</mat-label>
+      <input type="text" matInput required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Publisher:</mat-label>
+      <mat-select>
+        <mat-option value="dc-comics">DC Comics</mat-option>
+        <mat-option value="marvel-comics">Marvel Comics</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Image URL:</mat-label>
+      <input type="url" matInput required />
+    </mat-form-field>
+
+    <button mat-mat-raised-button>
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+  </form>
+  <div class="hero-img">
+    <img [src]="heroe | heroImage" alt="" />
+  </div>
+</div>

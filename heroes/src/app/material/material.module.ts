@@ -8,6 +8,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 
 const modules = [
   MatSidenavModule,
@@ -19,6 +20,7 @@ const modules = [
   MatFormFieldModule,
   MatInputModule,
   MatAutocompleteModule,
+  MatSelectModule,
 ];
 
 @NgModule({
