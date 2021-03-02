@@ -1,46 +1,76 @@
 <h1>New Hero</h1>
 
 <div class="flex-between">
-  <form class="form" autocomplete="off">
+  <form class="form" autocomplete="off" (ngSubmit)="save()">
     <mat-form-field>
       <mat-label>Super hero</mat-label>
-      <input type="text" matInput required />
+      <input
+        type="text"
+        name="super-hero"
+        matInput
+        required
+        [(ngModel)]="hero.superhero"
+      />
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Alter ego</mat-label>
-      <input type="text" matInput required />
+      <input
+        type="text"
+        name="alter-ego"
+        matInput
+        required
+        [(ngModel)]="hero.alter_ego"
+      />
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>First appearance</mat-label>
-      <input type="text" matInput required />
+      <input
+        type="text"
+        name="first-appearance"
+        matInput
+        required
+        [(ngModel)]="hero.first_appearance"
+      />
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Characters:</mat-label>
-      <input type="text" matInput required />
+      <input
+        type="text"
+        name="characters"
+        matInput
+        required
+        [(ngModel)]="hero.characters"
+      />
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Publisher:</mat-label>
-      <mat-select>
-        <mat-option value="dc-comics">DC Comics</mat-option>
-        <mat-option value="marvel-comics">Marvel Comics</mat-option>
+      <mat-select required [(ngModel)]="hero.publisher" name="publisher">
+        <mat-option value="DC Comics">DC Comics</mat-option>
+        <mat-option value="Marvel Comics">Marvel Comics</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Image URL:</mat-label>
-      <input type="url" matInput required />
+      <input
+        type="url"
+        name="image-url"
+        matInput
+        required
+        [(ngModel)]="hero.alt_img"
+      />
     </mat-form-field>
 
-    <button mat-mat-raised-button>
+    <button mat-mat-raised-button type="submit">
       <mat-icon>save</mat-icon>
       Save
     </button>
   </form>
   <div class="hero-img">
-    <img [src]="heroe | heroImage" alt="" />
+    <img [src]="hero | heroImage" alt="" />
   </div>
 </div>

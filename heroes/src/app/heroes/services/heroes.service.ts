@@ -22,4 +22,8 @@ export class HeroesService {
       `http://localhost:3000/heroes?q=${query}&_limit=6`
     );
   }
+
+  createtHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>('http://localhost:3000/heroes/', hero);
+  }
 }
