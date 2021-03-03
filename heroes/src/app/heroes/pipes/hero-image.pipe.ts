@@ -12,6 +12,7 @@ export class HeroImagePipe implements PipeTransform {
       publisher === 'DC Comics' ? 'dc-' : 'marvel-'
     }${imageName?.toLowerCase()}.jpg`;
     const image = value ? buildPath : 'assets/no-image.png';
-    return image;
+    const newImage = value.includes('http') ? value : image;
+    return newImage;
   }
 }

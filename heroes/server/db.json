@@ -168,13 +168,13 @@
       "characters": "Norrin Radd"
     },
     {
-      "superhero": "Robin",
-      "alter_ego": "",
+      "superhero": "Spiderman",
+      "alter_ego": "Peter Parker",
       "characters": "",
       "publisher": "DC Comics",
-      "alt_img": "https://static.vix.com/es/sites/default/files/styles/1x1/public/btg/comics.batanga.com/files/Cinco-Robins-que-cambiaron-la-historia-de-Batman-3.jpg",
-      "first_appearance": "",
-      "id": "BhMELkM"
+      "alt_img": "https://i.pinimg.com/736x/b4/c3/f1/b4c3f163126ea2e7a710bc244aa9a4d5.jpg",
+      "first_appearance": "Spider-man",
+      "id": "asBtPWe"
     }
   ]
 }

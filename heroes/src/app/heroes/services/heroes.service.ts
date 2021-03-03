@@ -28,7 +28,10 @@ export class HeroesService {
   }
 
   updatetHero(hero: Hero): Observable<Hero> {
-    console.log('http://localhost:3000/heroes/' + hero.id);
     return this.http.put<Hero>('http://localhost:3000/heroes/' + hero.id, hero);
+  }
+
+  deleteHero(id: string): Observable<any> {
+    return this.http.delete<any>('http://localhost:3000/heroes/' + id);
   }
 }

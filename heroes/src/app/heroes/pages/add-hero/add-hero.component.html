@@ -69,6 +69,15 @@
       <mat-icon>save</mat-icon>
       Save
     </button>
+    <button
+      mat-mat-raised-button
+      type="button"
+      (click)="deleteHero()"
+      *ngIf="hero?.id"
+    >
+      <mat-icon>remove</mat-icon>
+      Delete
+    </button>
   </form>
   <div class="hero-img">
     <img [src]="hero.alt_img | heroImage" alt="" />

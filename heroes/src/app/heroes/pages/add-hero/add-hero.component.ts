@@ -65,4 +65,10 @@ export class AddHeroComponent implements OnInit {
       });
     }
   }
+
+  deleteHero() {
+    this.heroesService.deleteHero(this.hero.id).subscribe((data) => {
+      this.router.navigate(['/heroes', this.hero.id]);
+    });
+  }
 }
