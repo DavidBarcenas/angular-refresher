@@ -13,6 +13,7 @@ export class HeroImagePipe implements PipeTransform {
     }${imageName?.toLowerCase()}.jpg`;
     const image = value ? buildPath : 'assets/no-image.png';
     const newImage = value.includes('http') ? value : image;
+
     return newImage;
   }
 }

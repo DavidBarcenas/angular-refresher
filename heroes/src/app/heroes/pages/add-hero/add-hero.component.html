@@ -65,19 +65,22 @@
       />
     </mat-form-field>
 
-    <button mat-mat-raised-button type="submit">
-      <mat-icon>save</mat-icon>
-      Save
-    </button>
-    <button
-      mat-mat-raised-button
-      type="button"
-      (click)="deleteHero()"
-      *ngIf="hero?.id"
-    >
-      <mat-icon>remove</mat-icon>
-      Delete
-    </button>
+    <div class="buttons">
+      <button mat-raised-button color="primary" type="submit">
+        <mat-icon>save</mat-icon>
+        Save
+      </button>
+      <button
+        color="warn"
+        mat-raised-button
+        type="button"
+        (click)="deleteHero()"
+        *ngIf="hero?.id"
+      >
+        <mat-icon>remove</mat-icon>
+        Delete
+      </button>
+    </div>
   </form>
   <div class="hero-img">
     <img [src]="hero.alt_img | heroImage" alt="" />
