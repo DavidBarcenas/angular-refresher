@@ -1,0 +1,27 @@
+.mat-toolbar,
+mat-drawer-container {
+  background: #222;
+  color: #fff;
+}
+
+mat-drawer {
+  width: 300px;
+}
+
+.nav {
+  margin-left: auto;
+}
+
+.search-hero {
+  overflow: hidden;
+}
+
+.search-input {
+  margin-left: 0.75em;
+  padding: 0.3em 0.5em;
+  font-size: 0.9em;
+  border: none;
+  outline: none;
+  min-width: 480px;
+  background: #fff;
+}

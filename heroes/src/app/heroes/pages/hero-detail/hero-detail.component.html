@@ -1,0 +1,38 @@
+<div class="hero-detail">
+  <div class="loader" *ngIf="!hero; else heroDetail">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <ng-template #heroDetail>
+    <div class="hero-detail-container">
+      <img
+        [src]="hero.superhero | heroImage: hero.publisher"
+        [alt]="hero.superhero"
+      />
+      <div class="desc">
+        <h1>{{ hero.superhero }}</h1>
+        <div>
+          <p>First appearance</p>
+          <span>{{ hero.first_appearance }}</span>
+        </div>
+        <div>
+          <p>Alter ego</p>
+          <span>{{ hero.alter_ego }}</span>
+        </div>
+        <div>
+          <p>Characters</p>
+          <span>{{ hero.characters }}</span>
+        </div>
+        <div>
+          <p>Publisher</p>
+          <span>{{ hero.publisher }}</span>
+        </div>
+        <div>
+          <button mat-raised-button [routerLink]="['/heroes/edit', hero.id]">
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

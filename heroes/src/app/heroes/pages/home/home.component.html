@@ -1,0 +1,53 @@
+<mat-drawer-container fullscreen autosize>
+  <mat-drawer #drawer opened mode="side">
+    <mat-toolbar>
+      <mat-toolbar-row class="flex-between">
+        <h1>Heroes</h1>
+        <button mat-button routerLink="heroes/add">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="sidebar_heroes">
+      <app-hero-list></app-hero-list>
+    </div>
+  </mat-drawer>
+
+  <div>
+    <mat-toolbar class="search-hero">
+      <mat-toolbar-row>
+        <div>
+          <input
+            matInput
+            placeholder="Search hero...."
+            [matAutocomplete]="auto"
+            [(ngModel)]="query"
+            (input)="search()"
+            class="search-input"
+          />
+          <mat-autocomplete
+            autoActiveFirstOption
+            #auto="matAutocomplete"
+            (optionSelected)="optSelected($event)"
+          >
+            <mat-option *ngFor="let option of suggestions" [value]="option">
+              {{ option.superhero }}
+            </mat-option>
+            <mat-option
+              [value]=""
+              *ngIf="query.trim() !== '' && suggestions.length === 0"
+              >No results found</mat-option
+            >
+          </mat-autocomplete>
+        </div>
+        <nav class="nav">
+          <button mat-button>{{ authService.auth.usuario }}</button>
+          <button mat-button (click)="logout()">Logout</button>
+        </nav>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>
