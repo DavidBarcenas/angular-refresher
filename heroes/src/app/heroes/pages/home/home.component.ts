@@ -37,4 +37,8 @@ export class HomeComponent implements OnInit {
     this.query = heroSelected.superhero;
     this.router.navigate(['heroes', heroSelected.id]);
   }
+
+  logout() {
+    this.router.navigate(['/auth']);
+  }
 }
