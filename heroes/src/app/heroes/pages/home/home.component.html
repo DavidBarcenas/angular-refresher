@@ -41,6 +41,7 @@
           </mat-autocomplete>
         </div>
         <nav class="nav">
+          <button mat-button>{{ authService.auth.usuario }}</button>
           <button mat-button (click)="logout()">Logout</button>
         </nav>
       </mat-toolbar-row>

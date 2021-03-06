@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatAutocompleteActivatedEvent } from '@angular/material/autocomplete';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { Hero } from '../../interfaces/heroes.interface';
 import { HeroesService } from '../../services/heroes.service';
 
@@ -14,7 +15,11 @@ export class HomeComponent implements OnInit {
   query: string = '';
   suggestions: Hero[] = [];
 
-  constructor(private heroService: HeroesService, private router: Router) {}
+  constructor(
+    private heroService: HeroesService,
+    private router: Router,
+    public authService: AuthService
+  ) {}
 
   ngOnInit(): void {}
 
