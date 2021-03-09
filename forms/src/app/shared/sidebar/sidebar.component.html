@@ -1,1 +1,22 @@
-<p>sidebar works!</p>
+<div class="menu-wrap">
+    <h3>Template</h3>
+    <ul class="list-group">
+        <li class="list-group-item" 
+            *ngFor="let menuItem of templateMenu"
+            [routerLink]="menuItem.route" 
+            routerLinkActive="active">
+        {{ menuItem.text }}
+        </li>
+    </ul>
+</div>
+<div class="menu-wrap">
+    <h3>Reactive</h3>
+    <ul class="list-group">
+        <li class="list-group-item" 
+            *ngFor="let menuItem of reactiveMenu"
+            [routerLink]="menuItem.route" 
+            routerLinkActive="active">
+            {{ menuItem.text }}
+        </li>
+    </ul>
+</div>
