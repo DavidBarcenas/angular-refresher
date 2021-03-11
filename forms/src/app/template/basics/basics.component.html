@@ -1,24 +1,42 @@
 <div class="wrap">
     <h2 class="mb-5">Template: Basic form</h2>
-    <form>
+    <form (ngSubmit)="save(formBasic)" #formBasic="ngForm" autocomplete="off">
         <div class="mb-3 row">
             <label for="product" class="form-label col-sm-2">Product</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="product" placeholder="Product name" aria-describedby="productHelp">
+                <input type="text" 
+                    class="form-control" 
+                    id="product" 
+                    name="product"
+                    ngModel
+                    placeholder="Product name" 
+                    aria-describedby="productHelp">
                 <div id="productHelp" class="invalid-feedback">We'll never share your email with anyone else.</div>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="price" class="form-label col-sm-2">Price</label>
             <div class="col-sm-9">
-                <input type="number" class="form-control" id="price" placeholder="$0.00" aria-describedby="priceHelp">
+                <input type="number" 
+                    class="form-control" 
+                    id="price" 
+                    name="price"
+                    ngModel
+                    placeholder="$0.00" 
+                    aria-describedby="priceHelp">
                 <div id="priceHelp" class="invalid-feedback">We'll never share your email with anyone else.</div>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="existing" class="form-label col-sm-2">Existing</label>
             <div class="col-sm-9">
-                <input type="number" class="form-control" id="existing" placeholder="2" aria-describedby="existingHelp">
+                <input type="number" 
+                    class="form-control" 
+                    id="existing" 
+                    name="existing"
+                    ngModel
+                    placeholder="2" 
+                    aria-describedby="existingHelp">
                 <div id="existingHelp" class="invalid-feedback">We'll never share your email with anyone else.</div>
             </div>
         </div>
