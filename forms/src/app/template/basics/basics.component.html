@@ -1,6 +1,6 @@
 <div class="wrap">
     <h2 class="mb-5">Template: Basic form</h2>
-    <form (ngSubmit)="save(formBasic)" #formBasic="ngForm" autocomplete="off">
+    <form (ngSubmit)="save()" #formBasic="ngForm" autocomplete="off">
         <div class="mb-3 row">
             <label for="product" class="form-label col-sm-2">Product</label>
             <div class="col-sm-9">
@@ -12,7 +12,7 @@
                     placeholder="Product name" 
                     aria-describedby="productHelp"
                     required minlength="3"
-                    [class.is-invalid]="formBasic.controls.product?.touched && formBasic.controls.product?.errors"
+                    [class.is-invalid]="validateName()"
                     >
                 <div id="productHelp" class="invalid-feedback">We'll never share your email with anyone else.</div>
             </div>
@@ -26,7 +26,9 @@
                     name="price"
                     ngModel
                     placeholder="$0.00" 
-                    aria-describedby="priceHelp">
+                    aria-describedby="priceHelp"
+                    [class.is-invalid]="validatePrice()"
+                    >
                 <div id="priceHelp" class="invalid-feedback">We'll never share your email with anyone else.</div>
             </div>
         </div>
