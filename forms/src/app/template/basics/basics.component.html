@@ -10,7 +10,10 @@
                     name="product"
                     ngModel
                     placeholder="Product name" 
-                    aria-describedby="productHelp">
+                    aria-describedby="productHelp"
+                    required minlength="3"
+                    [class.is-invalid]="formBasic.controls.product?.touched && formBasic.controls.product?.errors"
+                    >
                 <div id="productHelp" class="invalid-feedback">We'll never share your email with anyone else.</div>
             </div>
         </div>
@@ -42,7 +45,7 @@
         </div>
         <div class="row">
             <div class="col-sm-11">
-                <button type="submit" class="btn btn-primary float-end">Save</button>
+                <button type="submit" [disabled]="formBasic.invalid" class="btn btn-primary float-end">Save</button>
             </div>
         </div>
     </form>
