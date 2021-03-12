@@ -41,6 +41,9 @@
                     name="existing"
                     ngModel
                     placeholder="2" 
+                    appCustomMin
+                    [minimum]="0"
+                    required
                     aria-describedby="existingHelp">
                 <div id="existingHelp" class="invalid-feedback">We'll never share your email with anyone else.</div>
             </div>
