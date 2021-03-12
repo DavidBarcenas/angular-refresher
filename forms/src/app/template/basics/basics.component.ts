@@ -3,11 +3,14 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-basics',
-  templateUrl: './basics.component.html',
-  styleUrls: ['./basics.component.scss']
+  templateUrl: './basics.component.html'
 })
 export class BasicsComponent implements OnInit {
   @ViewChild('formBasic') form: NgForm;
+  
+  initForm = {
+     
+  }
 
   constructor() { }
 
@@ -24,6 +27,6 @@ export class BasicsComponent implements OnInit {
   }
 
   save() {
-    console.log(this.form.value)
+    this.form.reset()
   }
 }
