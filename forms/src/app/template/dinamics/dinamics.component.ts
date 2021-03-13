@@ -24,11 +24,22 @@ export class DinamicsComponent {
     ],
   };
 
+  newFavorite: string = '';
+
   save(form: NgForm) {
     console.log('form', form.value);
   }
 
   deleteFavorite(idx: number) {
     this.person.favorites.splice(idx, 1);
+  }
+
+  addFavorite() {
+    this.person.favorites.push({
+      id: this.person.favorites.length + 1,
+      name: this.newFavorite,
+    });
+
+    this.newFavorite = '';
   }
 }

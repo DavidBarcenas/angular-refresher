@@ -25,8 +25,20 @@
       <label for="name" class="form-label col-sm-2">Add</label>
       <div class="col-sm-9">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Favorites" />
-          <button type="button" class="btn btn-outline btn-primary">Add</button>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Favorites"
+            [(ngModel)]="newFavorite"
+            name="new-favorite"
+          />
+          <button
+            type="button"
+            class="btn btn-outline btn-primary"
+            (click)="addFavorite()"
+          >
+            Add
+          </button>
         </div>
         <div id="nameHelp" class="invalid-feedback">
           We'll never share your name with anyone else.
