@@ -22,7 +22,13 @@
       <label for="name" class="form-label col-sm-2">Add</label>
       <div class="col-sm-9">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Favorites" />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Favorites"
+            [formControl]="favorite"
+            [class.is-invalid]="favorite.invalid && favorite.touched"
+          />
           <button
             type="button"
             class="btn btn-outline btn-primary"
@@ -41,13 +47,13 @@
       <div class="col-sm-9" formArrayName="favorites">
         <div
           class="input-group mb-2"
-          *ngFor="let favorite of favoritesArr; let i = index"
+          *ngFor="let favorite of favoritesArr.controls; let i = index"
         >
           <input type="text" class="form-control" [formControlName]="i" />
           <button
             type="button"
             class="btn btn-outline btn-danger"
-            (click)="deleteFavorite()"
+            (click)="deleteFavorite(i)"
           >
             Delete
           </button>
@@ -61,3 +67,5 @@
     </div>
   </form>
 </div>
+<pre>{{ dynamicForm.valid }}</pre>
+<pre>{{ dynamicForm.value | json }}</pre>
