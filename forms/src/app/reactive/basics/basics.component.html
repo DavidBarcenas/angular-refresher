@@ -1,1 +1,63 @@
-<p>basics works!</p>
+<div class="wrap">
+  <h2 class="mb-5">Reactive: Basic form</h2>
+  <form [formGroup]="basicForm" autocomplete="off">
+    <div class="mb-3 row">
+      <label for="product" class="form-label col-sm-2">Product</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          class="form-control"
+          id="product"
+          placeholder="Product name"
+          aria-describedby="productHelp"
+          formControlName="name"
+        />
+        <div id="productHelp" class="invalid-feedback">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="price" class="form-label col-sm-2">Price</label>
+      <div class="col-sm-9">
+        <input
+          type="number"
+          class="form-control"
+          id="price"
+          placeholder="$0.00"
+          aria-describedby="priceHelp"
+          formControlName="price"
+        />
+        <div id="priceHelp" class="invalid-feedback">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="existing" class="form-label col-sm-2">Existing</label>
+      <div class="col-sm-9">
+        <input
+          type="number"
+          class="form-control"
+          id="existing"
+          aria-describedby="existingHelp"
+          formControlName="existing"
+        />
+        <div id="existingHelp" class="invalid-feedback">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-11">
+        <button
+          type="submit"
+          [disabled]="basicForm.invalid"
+          class="btn btn-primary float-end"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
