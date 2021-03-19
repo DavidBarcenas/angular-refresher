@@ -28,4 +28,13 @@ export class BasicsComponent implements OnInit {
       this.basicForm.controls[field].touched
     );
   }
+
+  save() {
+    if (this.basicForm.invalid) {
+      this.basicForm.markAllAsTouched();
+      return;
+    }
+
+    this.basicForm.reset();
+  }
 }

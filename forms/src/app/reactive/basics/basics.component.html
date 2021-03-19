@@ -1,6 +1,6 @@
 <div class="wrap">
   <h2 class="mb-5">Reactive: Basic form</h2>
-  <form [formGroup]="basicForm" autocomplete="off">
+  <form (ngSubmit)="save()" [formGroup]="basicForm" autocomplete="off">
     <div class="mb-3 row">
       <label for="product" class="form-label col-sm-2">Product</label>
       <div class="col-sm-9">
@@ -52,13 +52,7 @@
     </div>
     <div class="row">
       <div class="col-sm-11">
-        <button
-          type="submit"
-          [disabled]="basicForm.invalid"
-          class="btn btn-primary float-end"
-        >
-          Save
-        </button>
+        <button type="submit" class="btn btn-primary float-end">Save</button>
       </div>
     </div>
   </form>
