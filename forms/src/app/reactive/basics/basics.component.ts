@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-basics',
@@ -7,13 +7,18 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./basics.component.scss'],
 })
 export class BasicsComponent implements OnInit {
-  basicForm: FormGroup = new FormGroup({
-    name: new FormControl(''),
-    price: new FormControl(''),
-    existing: new FormControl(''),
-  });
+  basicForm: FormGroup;
 
-  constructor() {}
+  constructor(private formBuilder: FormBuilder) {
+    this.basicForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      price: [
+        0,
+        [Validators.required, Validators.min(0), Validators.max(99.99)],
+      ],
+      existing: ['', [Validators.required]],
+    });
+  }
 
   ngOnInit(): void {}
 }
