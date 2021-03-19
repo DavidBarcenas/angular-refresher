@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dinamics',
@@ -9,14 +9,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class DinamicsComponent implements OnInit {
   dynamicForm: FormGroup;
 
+  get favoritesArr() {
+    return this.dynamicForm.controls.favorites['controls'] as FormArray;
+  }
+
   constructor(private formBuilder: FormBuilder) {
     this.dynamicForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
-      price: [
-        ,
-        [Validators.required, Validators.min(0), Validators.max(99.99)],
-      ],
-      existing: [, [Validators.required]],
+      favorites: this.formBuilder.array(
+        [['Metal Gear'], ['Halo']],
+        Validators.required
+      ),
     });
   }
 
@@ -37,4 +40,8 @@ export class DinamicsComponent implements OnInit {
 
     this.dynamicForm.reset();
   }
+
+  addFavorite() {}
+
+  deleteFavorite() {}
 }

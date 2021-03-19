@@ -19,34 +19,38 @@
       </div>
     </div>
     <div class="mb-3 row">
-      <label for="price" class="form-label col-sm-2">Price</label>
+      <label for="name" class="form-label col-sm-2">Add</label>
       <div class="col-sm-9">
-        <input
-          type="number"
-          class="form-control"
-          id="price"
-          placeholder="$0.00"
-          aria-describedby="priceHelp"
-          formControlName="price"
-          [class.is-invalid]="getValidate('price')"
-        />
-        <div id="priceHelp" class="invalid-feedback">
-          We'll never share your email with anyone else.
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Favorites" />
+          <button
+            type="button"
+            class="btn btn-outline btn-primary"
+            (click)="addFavorite()"
+          >
+            Add
+          </button>
+        </div>
+        <div id="nameHelp" class="invalid-feedback">
+          We'll never share your name with anyone else.
         </div>
       </div>
     </div>
     <div class="mb-3 row">
-      <label for="existing" class="form-label col-sm-2">Existing</label>
-      <div class="col-sm-9">
-        <input
-          type="number"
-          class="form-control"
-          id="existing"
-          aria-describedby="existingHelp"
-          formControlName="existing"
-        />
-        <div id="existingHelp" class="invalid-feedback">
-          We'll never share your email with anyone else.
+      <label for="name" class="form-label col-sm-2">Favorites</label>
+      <div class="col-sm-9" formArrayName="favorites">
+        <div
+          class="input-group mb-2"
+          *ngFor="let favorite of favoritesArr; let i = index"
+        >
+          <input type="text" class="form-control" [formControlName]="i" />
+          <button
+            type="button"
+            class="btn btn-outline btn-danger"
+            (click)="deleteFavorite()"
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>
