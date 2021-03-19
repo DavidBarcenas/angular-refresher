@@ -11,6 +11,7 @@
           placeholder="Product name"
           aria-describedby="productHelp"
           formControlName="name"
+          [class.is-invalid]="getValidate('name')"
         />
         <div id="productHelp" class="invalid-feedback">
           We'll never share your email with anyone else.
@@ -27,6 +28,7 @@
           placeholder="$0.00"
           aria-describedby="priceHelp"
           formControlName="price"
+          [class.is-invalid]="getValidate('price')"
         />
         <div id="priceHelp" class="invalid-feedback">
           We'll never share your email with anyone else.
