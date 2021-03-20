@@ -22,7 +22,7 @@ export class SharedValidators {
           pssdError: true,
         };
       }
-      control.get(field2)?.setErrors(null);
+      // control.get(field2)?.setErrors(null);
       return null;
     };
   }

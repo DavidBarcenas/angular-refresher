@@ -105,4 +105,4 @@
     </div>
   </div>
 </div>
-<pre>form valid: {{ registerForm.valid }}</pre>
+<pre>form valid: {{ registerForm.controls.email?.errors | json }}</pre>

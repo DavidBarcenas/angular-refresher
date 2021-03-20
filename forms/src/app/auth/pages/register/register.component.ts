@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmailValidatorService } from 'src/app/shared/validators/email-validator.service';
 import { SharedValidators } from 'src/app/shared/validators/validators';
 
 @Component({
@@ -20,6 +21,7 @@ export class RegisterComponent implements OnInit {
           Validators.required,
           Validators.pattern(SharedValidators.emailPattern),
         ],
+        [this.emailValidator],
       ],
       username: ['', [Validators.required, SharedValidators.validateUsername]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -30,7 +32,10 @@ export class RegisterComponent implements OnInit {
     }
   );
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private emailValidator: EmailValidatorService
+  ) {}
 
   ngOnInit(): void {}
 
