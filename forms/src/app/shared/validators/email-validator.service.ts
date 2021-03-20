@@ -18,7 +18,6 @@ export class EmailValidatorService implements AsyncValidator {
     control: AbstractControl
   ): Promise<ValidationErrors> | Observable<ValidationErrors> {
     const email = control.value;
-    console.log(email);
     return this.http.get('http://localhost:3000/usuarios?q=' + email).pipe(
       map((resp: any[]) => {
         return resp.length === 0 ? null : { emailInUse: true };
