@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,11 +14,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   namePattern: string = '([a-zA-Z]+) ([a-zA-Z]+)';
+  emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,4})$/;
 
   registerForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.pattern(this.namePattern)]],
-    email: [''],
-    username: [''],
+    email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
+    username: ['', [Validators.required, this.validateUsername]],
     password: [''],
     passwordConfirm: [''],
   });
@@ -20,6 +27,13 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
+
+  validateUsername(control: FormControl): ValidationErrors {
+    if (control.value?.trim().toLowerCase() === 'daveepro') {
+      return { userNameError: true };
+    }
+    return null;
+  }
 
   validateField(field: string): boolean {
     const form = this.registerForm.controls;

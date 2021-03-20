@@ -34,7 +34,7 @@
               placeholder="Write your email"
               aria-describedby="emailHelp"
               formControlName="email"
-              [class.is-invalid]="false"
+              [class.is-invalid]="validateField('email')"
             />
             <div id="emailHelp" class="invalid-feedback">
               Enter a valid email
@@ -51,7 +51,7 @@
               placeholder="Write your username"
               aria-describedby="usernameHelp"
               formControlName="username"
-              [class.is-invalid]="false"
+              [class.is-invalid]="validateField('username')"
             />
             <div id="usernameHelp" class="invalid-feedback">
               Username is already in use
@@ -68,7 +68,7 @@
               placeholder="Write your password"
               aria-describedby="password"
               formControlName="password"
-              [class.is-invalid]="false"
+              [class.is-invalid]="validateField('password')"
             />
             <div id="password" class="invalid-feedback">
               The password must be at least 6 characters long
@@ -87,7 +87,7 @@
               placeholder="Repeat your password"
               aria-describedby="passwordConfirm"
               formControlName="passwordConfirm"
-              [class.is-invalid]="false"
+              [class.is-invalid]="validateField('passwordConfirm')"
             />
             <div id="passwordConfirm" class="invalid-feedback">
               The password must be at least 6 characters long
