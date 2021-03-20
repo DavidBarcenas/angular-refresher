@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ValidationErrors,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharedValidators } from 'src/app/shared/validators/validators';
 
 @Component({
   selector: 'app-register',
@@ -13,27 +8,31 @@ import {
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  namePattern: string = '([a-zA-Z]+) ([a-zA-Z]+)';
-  emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,4})$/;
-
-  registerForm: FormGroup = this.fb.group({
-    name: ['', [Validators.required, Validators.pattern(this.namePattern)]],
-    email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
-    username: ['', [Validators.required, this.validateUsername]],
-    password: [''],
-    passwordConfirm: [''],
-  });
+  registerForm: FormGroup = this.fb.group(
+    {
+      name: [
+        '',
+        [Validators.required, Validators.pattern(SharedValidators.namePattern)],
+      ],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(SharedValidators.emailPattern),
+        ],
+      ],
+      username: ['', [Validators.required, SharedValidators.validateUsername]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      passwordConfirm: ['', [Validators.required, Validators.minLength(6)]],
+    },
+    {
+      validators: [SharedValidators.equalFields('password', 'passwordConfirm')],
+    }
+  );
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
-
-  validateUsername(control: FormControl): ValidationErrors {
-    if (control.value?.trim().toLowerCase() === 'daveepro') {
-      return { userNameError: true };
-    }
-    return null;
-  }
 
   validateField(field: string): boolean {
     const form = this.registerForm.controls;
