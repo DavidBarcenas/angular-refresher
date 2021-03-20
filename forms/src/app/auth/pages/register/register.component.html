@@ -2,7 +2,11 @@
   <h2 class="mb-5">Reactive Validations</h2>
   <div class="row">
     <div class="col">
-      <form autocomplete="off">
+      <form
+        (ngSubmit)="handleSubmit()"
+        [formGroup]="registerForm"
+        autocomplete="off"
+      >
         <div class="mb-3 row">
           <label for="name" class="form-label col-sm-2">Name:</label>
           <div class="col-sm-9">
@@ -13,7 +17,7 @@
               placeholder="Write your name"
               aria-describedby="nameHelp"
               formControlName="name"
-              [class.is-invalid]="false"
+              [class.is-invalid]="validateField('name')"
             />
             <div id="nameHelp" class="invalid-feedback">
               Must be first and last name
@@ -101,3 +105,4 @@
     </div>
   </div>
 </div>
+<pre>form valid: {{ registerForm.valid }}</pre>
