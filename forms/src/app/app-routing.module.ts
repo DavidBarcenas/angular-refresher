@@ -2,19 +2,25 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { 
-    path: 'template', 
-    loadChildren: () => import('./template/template.module').then(m => m.TemplateModule)
+  {
+    path: 'template',
+    loadChildren: () =>
+      import('./template/template.module').then((m) => m.TemplateModule),
   },
-  { 
-    path: 'reactive', 
-    loadChildren: () => import('./reactive/reactive.module').then(m => m.ReactiveModule)
+  {
+    path: 'reactive',
+    loadChildren: () =>
+      import('./reactive/reactive.module').then((m) => m.ReactiveModule),
   },
-  { path: '**', redirectTo: 'template', pathMatch: 'full' }
-]
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  { path: '**', redirectTo: 'template', pathMatch: 'full' },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

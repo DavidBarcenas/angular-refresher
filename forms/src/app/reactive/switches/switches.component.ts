@@ -26,6 +26,6 @@ export class SwitchesComponent implements OnInit {
   }
 
   save() {
-    console.log(this.switchesForm.value);
+    this.person = this.switchesForm.value;
   }
 }
