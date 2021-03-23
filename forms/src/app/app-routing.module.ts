@@ -16,7 +16,12 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
-  { path: '**', redirectTo: 'template', pathMatch: 'full' },
+  {
+    path: 'combos',
+    loadChildren: () =>
+      import('./combos/combos.module').then((m) => m.CombosModule),
+  },
+  { path: '**', redirectTo: 'combos', pathMatch: 'full' },
 ];
 
 @NgModule({

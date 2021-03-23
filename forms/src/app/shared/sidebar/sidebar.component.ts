@@ -24,7 +24,7 @@ export class SidebarComponent {
   ];
 
   authMenu: MenuItem[] = [
-    { text: 'Login', route: '/auth/login' },
+    { text: 'Combos', route: '/combos' },
     { text: 'Register', route: '/auth/register' },
   ];
 }
