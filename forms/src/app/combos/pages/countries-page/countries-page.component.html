@@ -20,6 +20,13 @@
     <div class="row">
       <div class="mb-3 col">
         <label for="country" class="form-label col-sm-2">Country:</label>
+        <div
+          class="spinner-border"
+          role="status"
+          *ngIf="loading && !countries.length"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
         <select
           class="form-control"
           formControlName="country"
@@ -36,10 +43,37 @@
       </div>
     </div>
     <div class="row">
+      <div class="mb-3 col">
+        <label for="border" class="form-label col-sm-2">Border:</label>
+        <div
+          class="spinner-border"
+          role="status"
+          *ngIf="loading && countries.length && !borders.length"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <select
+          class="form-control"
+          formControlName="border"
+          (change)="borderChange()"
+        >
+          <option value="">-- Select border --</option>
+          <option *ngFor="let border of borders" [value]="border">
+            {{ border }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
       <div class="col">
-        <button type="submit" class="btn btn-primary float-end">Select</button>
+        <button
+          type="submit"
+          class="btn btn-primary float-end"
+          [disabled]="form.invalid"
+        >
+          Select
+        </button>
       </div>
     </div>
   </form>
-  <pre>form value: {{ form.value | json }}</pre>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Country } from '../../interfaces/countries.interface';
+import { Countries } from '../../interfaces/countries.interface';
 import { CountriesService } from '../../services/countries.service';
 
 @Component({
@@ -11,11 +11,14 @@ import { CountriesService } from '../../services/countries.service';
 export class CountriesPageComponent implements OnInit {
   form: FormGroup = this.fb.group({
     region: ['', Validators.required],
-    country: ['', Validators.required],
+    country: [{ value: '', disabled: true }, Validators.required],
+    border: [{ value: '', disabled: true }, Validators.required],
   });
 
   regions: string[] = [];
-  countries: Country[] = [];
+  countries: Countries[] = [];
+  borders: any[] = [];
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -27,13 +30,52 @@ export class CountriesPageComponent implements OnInit {
   }
 
   regionChange() {
-    const region = this.form.controls.region.value;
+    this.loading = true;
+    this.cleanField('country');
+    this.cleanField('border');
+
     this.countriesService
-      .getCountriesByRegion(region)
-      .subscribe((countries: Country[]) => (this.countries = countries));
+      .getCountriesByRegion(this.getFieldValue('region'))
+      .subscribe(
+        (countries) => {
+          this.countries = countries;
+          this.form.controls.country.enable();
+        },
+        (err) => console.error(err),
+        () => (this.loading = false)
+      );
   }
 
-  countryChange() {}
+  countryChange() {
+    this.loading = true;
+    this.cleanField('border');
+
+    this.countriesService.getCountry(this.getFieldValue('country')).subscribe(
+      (country) => {
+        this.borders = country.borders;
+        this.form.controls.border.enable();
+      },
+      (err) => console.error(err),
+      () => (this.loading = false)
+    );
+  }
+
+  borderChange() {}
+
+  cleanField(field: string): void {
+    this.form.controls[field].reset('');
+    this.form.controls[field].disable();
+
+    if (field === 'country') {
+      this.countries = [];
+    } else {
+      this.borders = [];
+    }
+  }
+
+  getFieldValue(field: string): string {
+    return this.form.controls[field].value;
+  }
 
   save() {}
 }
