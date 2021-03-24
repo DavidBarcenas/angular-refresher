@@ -1,1 +1,45 @@
-<p>countries-page works!</p>
+<div class="wrap">
+  <h2 class="mb-5">Combos anidados</h2>
+
+  <form (ngSubmit)="save()" [formGroup]="form">
+    <div class="row">
+      <div class="mb-3 col">
+        <label for="region" class="form-label col-sm-2">Region:</label>
+        <select
+          class="form-control"
+          formControlName="region"
+          (change)="regionChange()"
+        >
+          <option value="">-- Select region --</option>
+          <option *ngFor="let region of regions" [value]="region | lowercase">
+            {{ region }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3 col">
+        <label for="country" class="form-label col-sm-2">Country:</label>
+        <select
+          class="form-control"
+          formControlName="country"
+          (change)="countryChange()"
+        >
+          <option value="">-- Select country --</option>
+          <option
+            *ngFor="let country of countries"
+            [value]="country.alpha3Code"
+          >
+            {{ country.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button type="submit" class="btn btn-primary float-end">Select</button>
+      </div>
+    </div>
+  </form>
+  <pre>form value: {{ form.value | json }}</pre>
+</div>
