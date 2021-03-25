@@ -1,0 +1,88 @@
+<div class="wrap">
+  <h2 class="mb-5">Template: Dynamic form</h2>
+  <form (ngSubmit)="save(form)" #form="ngForm" autocomplete="off">
+    <div class="mb-3 row">
+      <label for="name" class="form-label col-sm-2">Name</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          [ngModel]="person.name"
+          required
+          placeholder="Write your name"
+          aria-describedby="nameHelp"
+          [class.is-invalid]="
+            form.controls.name?.touched && form.controls.name?.invalid
+          "
+        />
+        <div id="nameHelp" class="invalid-feedback">
+          We'll never share your name with anyone else.
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="name" class="form-label col-sm-2">Add</label>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Favorites"
+            [(ngModel)]="newFavorite"
+            name="new-favorite"
+          />
+          <button
+            type="button"
+            class="btn btn-outline btn-primary"
+            (click)="addFavorite()"
+          >
+            Add
+          </button>
+        </div>
+        <div id="nameHelp" class="invalid-feedback">
+          We'll never share your name with anyone else.
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="name" class="form-label col-sm-2">Favorites</label>
+      <div class="col-sm-9">
+        <div
+          class="input-group mb-2"
+          *ngFor="let favorite of person.favorites; let i = index"
+        >
+          <input
+            type="text"
+            [ngModel]="favorite.name"
+            [name]="favorite.name"
+            required
+            class="form-control"
+          />
+          <button
+            type="button"
+            class="btn btn-outline btn-danger"
+            (click)="deleteFavorite(i)"
+          >
+            x
+          </button>
+        </div>
+        <div id="nameHelp" class="invalid-feedback">
+          We'll never share your name with anyone else.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-11">
+        <button
+          type="button"
+          class="btn btn-primary float-end"
+          [disabled]="form.invalid"
+          (click)="save(form)"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
