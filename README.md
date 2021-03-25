@@ -1,4 +1,4 @@
-# Angular Review Excercises
+# Angular Refresher
 
 Several applications made with angular so as not to lose practice with this framework
 
